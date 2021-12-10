@@ -533,6 +533,11 @@ public abstract class SubscriptionsTable implements IsWidget {
                     && (whitelisted == null || whitelisted == o.isWhitelisted());
         }
 
+        @Override
+        public boolean test(@org.checkerframework.checker.nullness.qual.Nullable Subscription o) {
+            return apply(o);
+        }
+
         public boolean isEmpty() {
             return isEmpty(krbNameExpression) && isEmpty(gitHubNameExpression) && krbAccount == null && whitelisted == null;
         }
